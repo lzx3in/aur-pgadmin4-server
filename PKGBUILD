@@ -9,7 +9,7 @@ license=('PostgreSQL')
 url='https://www.pgadmin.org/'
 depends=('postgresql-libs' 'krb5' 'python-dbus')
 provides=('pgadmin4-server')
-source=(${pkgname}-${pkgver}-x86_64.deb::"https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/plucky/dists/pgadmin4/main/binary-amd64/${pkgname}_${pkgver}_amd64.deb")
+source=("${pkgname}-${pkgver}-x86_64.deb::https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/plucky/dists/pgadmin4/main/binary-amd64/${pkgname}_${pkgver}_amd64.deb")
 sha256sums=('7cd21f185f7c5790edd9214ddf03389244e56c98afafd2d6db0c8096ae508a1c')
 
 package() {
