@@ -50,4 +50,8 @@ build() {
 
 package() {
   cp -r "${srcdir}/pgadmin4-${pkgver}/arch-build/server/usr"  "${pkgdir}/"
+
+  # Install license
+  install -Dm644 "$srcdir/pgadmin4-${pkgver}/LICENSE" \
+    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
