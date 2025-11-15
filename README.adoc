@@ -21,19 +21,19 @@ pgAdmin is the most popular and feature rich Open Source administration and deve
 
 In the pgAdmin 4 ecosystem for Arch Linux, the functionality is distributed across multiple packages to support the two primary deployment modes: server mode​ (web-based access) and desktop mode​ (standalone application). The Arch User Repository (AUR) hosts four interrelated packages that cater to these modes:
 
-* **pgadmin4** (Meta Package):A convenience package that depends on all other components, allowing users to easily install the full pgAdmin 4 suite.
+* **pgadmin4** (Meta Package): A convenience package that depends on all other components, allowing users to easily install the full pgAdmin 4 suite.
 
 * **pgadmin4-server**: This package provides the core backend server components, written in Python/Flask, which are essential for both deployment modes. It handles database connectivity, business logic, and API endpoints. All other packages depend on this for basic functionality.
 
-* **pgadmin4-web**: Designed for server mode, this package contains the necessary configuration files and setup scripts to deploy pgAdmin 4 as a web application.
+* **pgadmin4-web**: Designed for server mode, this package contains the necessary configuration files and setup scripts to deploy pgAdmin 4 as a web application under Apache HTTP Server with mod_wsgi.
 
-* **pgadmin4-desktop**: Designed for desktop mode, this package bundles the Electron-based runtime that combines the server and UI into a standalone executable. It depends on pgadmin4-serverfor backend operations but provides a native desktop experience without requiring a web browser.
+* **pgadmin4-desktop**: Designed for desktop mode, this package bundles the Electron-based runtime that combines the server and UI into a standalone executable. It depends on pgadmin4-server for backend operations but provides a native desktop experience without requiring a web browser.
 
 The package split offers flexibility: users can install only the components needed for their preferred mode. For instance:
 
-* **Server mode**: Install pgadmin4-serverand pgadmin4-web(or use the meta package pgadmin4).
+* **Server mode**: Install pgadmin4-server and pgadmin4-web (or use the meta package pgadmin4).
 
-* **Desktop mode**: Install pgadmin4-serverand pgadmin4-desktop(or use the meta package pgadmin4).
+* **Desktop mode**: Install pgadmin4-server and pgadmin4-desktop (or use the meta package pgadmin4).
 
 This package, pgadmin4-server, is the foundational component shared by both deployment modes.
 
@@ -67,6 +67,6 @@ This repository primarily hosts packaging files for Arch Linux's AUR. For effect
 ** Developer discussions: mailto:pgadmin-hackers@lists.postgresql.org[pgadmin-hackers@lists.postgresql.org]
 ** Support discussions: mailto:pgadmin-support@lists.postgresql.org[pgadmin-support@lists.postgresql.org]
 
-* **Issues in this repository**: Please note that the vast majority of discussions are better suited for the channels listed above. Issues in this repository are typically only appropriate if they are specifically related to the devbranch (e.g., development tools, Dockerfile, CI workflows).
+* **Issues in this repository**: Please note that the vast majority of discussions are better suited for the channels listed above. Issues in this repository are typically only appropriate if they are specifically related to the dev branch (e.g., development tools, Dockerfile, CI workflows).
 
 This approach ensures that discussions reach the right audience and get addressed more efficiently.
