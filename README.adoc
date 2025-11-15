@@ -1,1 +1,72 @@
-= AUR-PGADMIN4-SERVER
+= pgAdmin 4 Server Package for Arch Linux
+
+image:https://img.shields.io/aur/version/pgadmin4-server[AUR Version,link=https://aur.archlinux.org/packages/pgadmin4-server]
+image:https://img.shields.io/aur/maintainer/pgadmin4-server[AUR Maintainer,link=https://aur.archlinux.org/packages/pgadmin4-server]
+image:https://img.shields.io/aur/license/pgadmin4-server[AUR License,link=https://aur.archlinux.org/packages/pgadmin4-server]
+
+This repository is a mirror of https://aur.archlinux.org/packages/pgadmin4-server[pgadmin4-server AUR package] with added development tools. This package provides the core server component of pgAdmin 4 for Arch Linux, built from the official source code.
+
+== Branches
+
+This repository has two main branches:
+
+* `master`: Mirror of the AUR repository. This branch contains only the PKGBUILD and related files as they appear in the AUR.
+* `dev`: Built upon the `master` branch, this branch includes additional development tools such as Dockerfile and GitHub Actions workflows for easier building and testing.
+
+== What is pgAdmin 4?
+
+pgAdmin is the most popular and feature rich Open Source administration and development platform for PostgreSQL, the most advanced Open Source database in the world. The official project is hosted at https://github.com/pgadmin-org/pgadmin4[pgadmin-org/pgadmin4 on GitHub].
+
+== Package Relationships
+
+In the pgAdmin 4 ecosystem for Arch Linux, the functionality is distributed across multiple packages to support the two primary deployment modes: server mode​ (web-based access) and desktop mode​ (standalone application). The Arch User Repository (AUR) hosts four interrelated packages that cater to these modes:
+
+* **pgadmin4** (Meta Package):A convenience package that depends on all other components, allowing users to easily install the full pgAdmin 4 suite.
+
+* **pgadmin4-server**: This package provides the core backend server components, written in Python/Flask, which are essential for both deployment modes. It handles database connectivity, business logic, and API endpoints. All other packages depend on this for basic functionality.
+
+* **pgadmin4-web**: Designed for server mode, this package contains the necessary configuration files and setup scripts to deploy pgAdmin 4 as a web application.
+
+* **pgadmin4-desktop**: Designed for desktop mode, this package bundles the Electron-based runtime that combines the server and UI into a standalone executable. It depends on pgadmin4-serverfor backend operations but provides a native desktop experience without requiring a web browser.
+
+The package split offers flexibility: users can install only the components needed for their preferred mode. For instance:
+
+* **Server mode**: Install pgadmin4-serverand pgadmin4-web(or use the meta package pgadmin4).
+
+* **Desktop mode**: Install pgadmin4-serverand pgadmin4-desktop(or use the meta package pgadmin4).
+
+This package, pgadmin4-server, is the foundational component shared by both deployment modes.
+
+== Installation
+
+This package is available on the link:https://aur.archlinux.org/packages/pgadmin4-server[Arch User Repository (AUR)] as `pgadmin4-server`.
+
+=== Using an AUR helper (e.g. paru):
+
+[,bash]
+----
+paru -Sy pgadmin4-server
+----
+
+=== Manual installation:
+
+[,bash]
+----
+git clone https://aur.archlinux.org/pgadmin4-server.git
+cd pgadmin4-server
+makepkg -si
+----
+
+== Community Collaboration
+
+This repository primarily hosts packaging files for Arch Linux's AUR. For effective community collaboration, please direct your discussions to the appropriate channels:
+
+* **AUR-related discussions**: For issues specifically related to the AUR packaging (PKGBUILD, installation, dependencies, etc.), please participate in the AUR community discussion at the link:https://aur.archlinux.org/packages/pgadmin4-server[AUR package page].
+
+* **Software-related discussions**: For discussions about pgAdmin 4 functionality, bugs, or feature requests, please use the upstream repository link:https://github.com/pgadmin-org/pgadmin4[pgadmin-org/pgadmin4] or the mailing lists:
+** Developer discussions: mailto:pgadmin-hackers@lists.postgresql.org[pgadmin-hackers@lists.postgresql.org]
+** Support discussions: mailto:pgadmin-support@lists.postgresql.org[pgadmin-support@lists.postgresql.org]
+
+* **Issues in this repository**: Please note that the vast majority of discussions are better suited for the channels listed above. Issues in this repository are typically only appropriate if they are specifically related to the devbranch (e.g., development tools, Dockerfile, CI workflows).
+
+This approach ensures that discussions reach the right audience and get addressed more efficiently.
